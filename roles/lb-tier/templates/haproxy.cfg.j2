@@ -26,5 +26,5 @@ backend app-servers
     balance roundrobin
     option forwardfor
 {% for backend in groups['apps'] %}
-    server {{ hostvars[backend]['ansible_hostname'] }} {{ hostvars[backend]['ansible_hostname'] }}.{{ GUID }}.internal:{{ tomcat_port }}  cookie {{ hostvars[backend]['ansible_hostname'] }}  check
+    server {{ hostvars[backend]['inventory_hostname'] }} {{ hostvars[backend]['inventory_hostname'] }}:{{ tomcat_port }}  cookie {{ hostvars[backend]['inventory_hostname'] }}  check
 {% endfor %}
