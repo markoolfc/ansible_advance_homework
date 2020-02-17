@@ -1,17 +1,17 @@
 - name: Download Private key
   get_url:
     url: http://www.opentlc.com/download/ansible_bootcamp/openstack_keys/openstack.pem
-    dest: "/home/{{ workstation_user }}/.ssh/"
-    owner: "{{ workstation_user }}"
-    group: "{{ workstation_user }}"
+    dest: "{{ ansible_env.HOME }}/.ssh/"
+    owner: "{{ ansible_env.USER }}"
+    group: "{{ ansible_env.USER }}"
     mode: 0400
 
 - name: Download Public key
   get_url:
     url: http://www.opentlc.com/download/ansible_bootcamp/openstack_keys/openstack.pub
-    dest: "/home/{{ workstation_user }}/.ssh/"
-    owner: "{{ workstation_user }}"
-    group: "{{ workstation_user }}"
+    dest: "{{ ansible_env.HOME }}/.ssh/"
+    owner: "{{ ansible_env.USER }}"
+    group: "{{ ansible_env.USER }}"
     mode: 0400
 
 - name: Generate key files
