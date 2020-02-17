@@ -1,5 +1,23 @@
 ---
 # tasks file for db-tier
-- import_role:
-    name: geerlingguy.postgresql
+- name: install postgres
+  yum:
+    name: postgresql-server
+    state: latest
 
+ test postgresql Initilization
+- name: Check database initialization
+  command: postgresql-check-db-dir  /var/lib/pgsql/data
+  register: check_db_output
+  changed_when: check_db_output == 1
+ ignore_errors: yes
+      
+- name: initilize postgres
+  shell: postgresql-setup initdb
+  when: check_db_output.rc != 0
+
+- name: start postgres
+  service:
+  name: postgresql
+  enabled: yes
+  state: started
