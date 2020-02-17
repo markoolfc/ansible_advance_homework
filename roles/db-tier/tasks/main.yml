@@ -5,7 +5,6 @@
     name: postgresql-server
     state: latest
 
- test postgresql Initilization
 - name: Check database initialization
   command: postgresql-check-db-dir  /var/lib/pgsql/data
   register: check_db_output
