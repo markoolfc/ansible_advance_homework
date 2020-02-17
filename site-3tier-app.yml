@@ -10,7 +10,8 @@
   local_action: command whoami
   register: username_on_the_host
 
-- debug: var=username_on_the_host
+- debug: 
+    var: "{{username_on_the_host}}"
 
 - name: setup load-balancer tier
   hosts: frontends
