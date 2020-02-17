@@ -1,5 +1,14 @@
 - hosts: frontends
   gather_facts: false
   tasks:
+
   - name: Use Uri module for wrting smoke test.
+    uri:
+      url: http://www.example.com
+      return_content: yes
+    register: webpage
+
   - name: Fail if 'Ansible has done its job' is not in the page content
+    fail:
+    when: "'Ansible' not in webpage.results[0].stdout"
+
