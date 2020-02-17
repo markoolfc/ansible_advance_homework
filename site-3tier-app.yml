@@ -5,9 +5,14 @@
 
 # Setup front-end load balancer tier
 
+- name: get the username running the deploy
+  become: false
+  local_action: command whoami
+  register: username_on_the_host
+
+- debug: var=username_on_the_host
 
 - name: setup load-balancer tier
-  remote_user: cloud_user
   hosts: frontends
   become: yes
   roles:
