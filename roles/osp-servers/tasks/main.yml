@@ -36,5 +36,5 @@
     search_regex: OpenSSH
     delay: 10
   connection: local
-  loop: "{{ inst_floating_ip }}"
+  loop: "{{ inst_floating_ip.results }}"
 
