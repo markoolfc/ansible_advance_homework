@@ -1,2 +1,5 @@
 ---
 # tasks file for db-tier
+- import_role:
+    name: geerlingguy.postgresql
+
