@@ -8,10 +8,7 @@
       return_content: yes
     register: webpage
   
-  - debug: var=inventory_hostname
-  - name: debug
-    debug:
-      var: "{{ inventory_hostname }}"
+  - debug: var=webpage
 
   - name: Fail if 'Ansible has done its job' is not in the page content
     fail:
