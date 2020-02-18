@@ -12,7 +12,7 @@
 
   - name: debug
     debug:
-      var: "{{ webpage }}"
+      var: "{{ inventory_hostname }}"
 
   - name: Fail if 'Ansible has done its job' is not in the page content
     fail:
