@@ -8,8 +8,6 @@
       return_content: yes
     register: webpage
   
-  - debug: var=webpage.content
-
   - name: Fail if 'Ansible has done its job' is not in the page content
     fail:
     when: "'Ansible' not in webpage.content"
