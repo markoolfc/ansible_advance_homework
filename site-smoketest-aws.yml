@@ -10,6 +10,10 @@
       - "{{ inventory_hostname }}"  
     register: webpage
 
+  - name: debug
+    debug:
+      var: "{{ webpage }}"
+
   - name: Fail if 'Ansible has done its job' is not in the page content
     fail:
     when: "'Ansible' not in webpage.results[0].stdout"
