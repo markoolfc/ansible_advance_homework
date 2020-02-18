@@ -1,8 +1,8 @@
 - hosts: frontends
-  gather_facts: false
+  gather_facts: true
   tasks:
 
-  - name: Use Uri module for wrting smoke test.
+  - name: Smoke Test
     uri:
       url: "http://{{ item }}"
       return_content: yes
